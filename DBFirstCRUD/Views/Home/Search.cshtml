@@ -1,0 +1,29 @@
+﻿@model IEnumerable<DBFirstCRUD.Models.Employee>
+@{
+    ViewBag.Title = "Search";
+}
+
+<h2>Search Employee</h2>
+
+<input type="text" id="searchBox" placeholder="Search By Name..." class="form-control" />
+<div id="employeeTable">
+    @Html.Partial("PartialList", Model);
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+$("#searchBox").keyup(function () {
+        var value = $(this).val();
+
+        $.ajax({
+            url: '/Home/Search',
+            type: 'GET',
+            data: { searchTerm: value },
+            success: function (result) {
+                $("#employeeTable").html(result);
+            }
+        });
+});</script>

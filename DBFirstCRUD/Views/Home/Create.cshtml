@@ -1,0 +1,30 @@
+﻿@model DBFirstCRUD.Models.Employee
+@{
+    ViewBag.Title = "Create";
+}
+
+
+<h2>Add Employee</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(m => m.Name)
+    @Html.TextBoxFor(m => m.Name)
+
+    <br />
+    <br />
+
+    @Html.LabelFor(m => m.DOB)
+    @Html.TextBoxFor(m => m.DOB, new { type = "date" })
+
+    <br />
+    <br />
+
+    @Html.LabelFor(m => m.Age)
+    @Html.TextBoxFor(m => m.Age)
+
+    <br />
+    <br />
+
+    <button type="submit">Add Employee</button>
+}

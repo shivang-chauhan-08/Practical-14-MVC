@@ -1,0 +1,24 @@
+﻿@model DBFirstCRUD.Models.Employee
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete Employee ?</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(m => m.Name)
+    @Html.TextBoxFor(m => m.Name, new { @disabled = "disabled" })
+
+    <br />
+    <br />
+
+    @Html.LabelFor(m => m.Age)
+    @Html.TextBoxFor(m => m.Age, new { @disabled = "disabled" })
+
+    <br />
+    <br />
+
+    <button class="btn btn-danger" type="submit">Delete Employee</button>
+    <button class="btn btn-danger" type="submit">@Html.ActionLink("No", "Index", "Home")</button>
+}
